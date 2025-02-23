@@ -4,10 +4,10 @@ resource "tls_private_key" "tls" {
     rsa_bits = 2048
 }
 resource "aws_key_pair" "key" {
-    key_name = "utc-key.pem"
+    key_name = ""
     public_key = tls_private_key.tls.public_key_openssh
 }
 resource "local_file" "key1" {
-    filename = "utc-key.pem"
+    filename = ""
     content = tls_private_key.tls.private_key_pem
 }
